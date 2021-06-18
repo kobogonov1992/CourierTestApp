@@ -29,7 +29,7 @@ public class OrderController {
     }
 
     @GetMapping("/orders")
-    public String getAllOrders(Model model) {  // Model это аналог Мапы в Java в которую добавляем атрибуты
+    public String getAllOrders(Model model) {
         List<Order> orders = orderService.getAllOrders();
         model.addAttribute("orders",orders);
 
@@ -41,7 +41,6 @@ public class OrderController {
         List<Courier> couriers = courierService.getAllCouriers();
         model.addAttribute("couriers",couriers);
         List<Admin> admins = adminService.getAllAdmins();
-        model.addAttribute("couriers",couriers);
         model.addAttribute("admins",admins);
         return "order-create";
     }
@@ -70,6 +69,10 @@ public class OrderController {
     public String updateOrderForm(@PathVariable("id") Long id, Model model){
         Order order = orderService.getOrderById(id);
         model.addAttribute("order",order);
+        List<Courier> couriers = courierService.getAllCouriers();
+        model.addAttribute("couriers",couriers);
+        List<Admin> admins = adminService.getAllAdmins();
+        model.addAttribute("admins",admins);
         return "/order-update";
     }
 

@@ -13,10 +13,7 @@
     <br/>
         <label for="ransom_sum">Order price</label>
         <input type="text" th:field="*{ransom_sum}" id="ransom_sum" placeholder="Order price">
-<!--    <select name="status" th:field="*{{courier_status}}" >-->
-<!--        <option th:each="courier_status : ${T(megacom.kg.test.model.enums.Courier_status).values()}"-->
-<!--                th:value="${courier_status}" th:selected="${courier_status == T(megacom.kg.test.model.enums.Courier_status)}" th:text="${courier_status.getStatus()}"></option>-->
-<!--    </select>-->
+
     <br/>
     <label for="order_date">Order date</label>
     <input type="datetime-local" th:field="*{order_date}" id="order_date" placeholder="Order date">
@@ -27,7 +24,22 @@
 
     <label for="comment">Comment</label>
     <input type="text" th:field="*{comment}" id="comment" placeholder="Comment">
+
     <br/>
+    <label class="label-courier">Couriers</label>
+    <select  th:field="*{courier}" class="label-courier">
+        <th:block th:each="cour : ${couriers}">
+            <option th:text="${cour.fullName}" th:value="${cour.id}"/>
+        </th:block>
+    </select>
+
+    <br/>
+    <label class="label-admin">Admins</label>
+    <select  th:field="*{admin}" class="label-admin">
+        <th:block th:each="adm : ${admins}">
+            <option th:text="${adm.fullName}" th:value="${adm.id}"/>
+        </th:block>
+    </select>
 
     <input type="submit" value="Update Order">
 </form>
