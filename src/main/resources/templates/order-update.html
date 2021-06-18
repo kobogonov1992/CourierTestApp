@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Update order</title>
+</head>
+<body>
+<form action="#" th:action="@{/order-update}" th:object="${order}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="order_name">Order name</label>
+    <input type="text" th:field="*{order_name}" id="order_name" placeholder="Order name">
+    <br/>
+        <label for="ransom_sum">Order price</label>
+        <input type="text" th:field="*{ransom_sum}" id="ransom_sum" placeholder="Order price">
+<!--    <select name="status" th:field="*{{courier_status}}" >-->
+<!--        <option th:each="courier_status : ${T(megacom.kg.test.model.enums.Courier_status).values()}"-->
+<!--                th:value="${courier_status}" th:selected="${courier_status == T(megacom.kg.test.model.enums.Courier_status)}" th:text="${courier_status.getStatus()}"></option>-->
+<!--    </select>-->
+    <br/>
+    <label for="order_date">Order date</label>
+    <input type="datetime-local" th:field="*{order_date}" id="order_date" placeholder="Order date">
+    <br/>
+    <label for="delivery_price">Delivery price</label>
+    <input type="text" th:field="*{delivery_price}" id="delivery_price" placeholder="Delivery price">
+    <br/>
+
+    <label for="comment">Comment</label>
+    <input type="text" th:field="*{comment}" id="comment" placeholder="Comment">
+    <br/>
+
+    <input type="submit" value="Update Order">
+</form>
+</body>
+</html>

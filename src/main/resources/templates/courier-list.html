@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Couriers</title>
+</head>
+<body>
+<div th:switch="${couriers}">
+    <h2 th:case="null">No couriers found!</h2>
+    <div th:case="*">
+        <h2>Couriers</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full name</th>
+                <th>Status</th>
+                <th>Phone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="courier : ${couriers}">
+                <td th:text="${courier.id}"></td>
+                <td th:text="${courier.fullName}"></td>
+                <td th:text="${courier.courier_status}"></td>
+                <td th:text="${courier.phone}"></td>
+                <td><a th:href="@{courier-update/{id}(id=${courier.id})}">Edit</a></td>
+                <td><a th:href="@{courier-delete/{id}(id=${courier.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/courier-create">Create courier</a></p>
+</div>
+</body>
+</html>

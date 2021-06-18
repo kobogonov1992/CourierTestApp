@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create courier</title>
+</head>
+<body>
+<form action="#" th:action="@{/courier-create}" th:object="${courier}" method="post">
+    <label for="fullName">Full name</label>
+    <input type="text" th:field="*{fullName}" id="fullName" placeholder="FullName">
+<!--    <label for="courier_status">Status</label>-->
+<!--    <input type="text" th:field="*{courier_status}" id="courier_status" placeholder="Status">-->
+<!--    <label for="phone">Phone</label>-->
+    <select name="status" th:field="*{{courier_status}}" >
+        <option th:each="courier_status : ${T(megacom.kg.test.model.enums.Courier_status).values()}"
+                th:value="${courier_status}" th:selected="${courier_status == T(megacom.kg.test.model.enums.Courier_status)}" th:text="${courier_status.getStatus()}"></option>
+    </select>
+    <input type="text" th:field="*{phone}" id="phone" placeholder="phone#">
+    <input type="submit" value="Create courier">
+</form>
+
+</body>
+</html>

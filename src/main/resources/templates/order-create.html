@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<form action="#" th:action="@{/order-create}" th:object="${order}" method="post">
+
+    <label for="OrderName">Order name</label>
+    <input type="text" th:field="*{order_name}" id="OrderName" placeholder="Order name">
+
+    <select name="status" th:field="*{{order_status}}" required >
+        <option th:each="order_status : ${T(megacom.kg.test.model.enums.Order_status).values()}"
+                th:value="${order_status}" th:selected="${order_status == T(megacom.kg.test.model.enums.Order_status)}" th:text="${order_status.getStatus2()}"></option>
+    </select>
+
+        <label for="order_price">Order price</label>
+        <input type="number" step="0.1" th:field="*{ransom_sum}" id="order_price" placeholder="Order price">
+
+        <label for="order_date">Order date</label>
+    <input type="datetime-local" th:field="*{order_date}" id="order_date" placeholder="Order date">
+
+    <label for="delivery_price">Delivery price</label>
+    <input type="number" step="0.1" th:field="*{delivery_price}" id="delivery_price" placeholder="Delivery price">
+
+    <label for="comments">Comments</label>
+    <input type="text" th:field="*{comment}" id="comments" placeholder="Comment">
+
+    <label for="details">Address Details</label>
+    <input type="text" name="address_from" id="details" placeholder="address_from">
+    <input type="text" name="phone"  id="details" placeholder="phone">
+    <input type="text" name="address_to"  id="details" placeholder="address_to">
+
+    <label class="label-courier">Couriers</label>
+    <select  th:field="*{courier}" class="label-courier">
+    <th:block th:each="cour : ${couriers}">
+        <option th:text="${cour.fullName}" th:value="${cour.id}"/>
+    </th:block>
+    </select>
+
+    <label class="label-admin">Admins</label>
+    <select  th:field="*{admin}" class="label-admin">
+        <th:block th:each="adm : ${admins}">
+            <option th:text="${adm.fullName}" th:value="${adm.id}"/>
+        </th:block>
+    </select>
+
+    <input type="submit" value="Create order">
+</form>
+
+</body>
+</html>

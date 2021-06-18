@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admins</title>
+</head>
+<body>
+<div th:switch="${admins}">
+    <h2 th:case="null">No couriers found!</h2>
+    <div th:case="*">
+        <h2>Admins</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full name</th>
+                <th>Logins</th>
+                <th>Passwords</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="adm : ${admins}">
+                <td th:text="${adm.id}"></td>
+                <td th:text="${adm.fullName}"></td>
+                <td th:text="${adm.login}"></td>
+                <td th:text="${adm.password}"></td>
+                <td><a th:href="@{admin-update/{id}(id=${adm.id})}">Edit</a></td>
+                <td><a th:href="@{admin-delete/{id}(id=${adm.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/admin-create">Create admin</a></p>
+</div>
+</body>
+</html>

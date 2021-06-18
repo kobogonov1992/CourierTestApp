@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Update admin</title>
+</head>
+<body>
+<form action="#" th:action="@{/admin-update}" th:object="${admin}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="FullName">FullName</label>
+    <input type="text" th:field="*{fullName}" id="FullName" placeholder="FullName">
+    <br/>
+    <label for="login">Login</label>
+    <input type="text" th:field="*{login}" id="login" placeholder="login">
+    <br/>
+    <br/>
+    <label for="password">Password</label>
+    <input type="text" th:field="*{password}" id="password" placeholder="login">
+    <br/>
+    <input type="submit" value="Update Admin">
+</form>
+</body>
+</html>

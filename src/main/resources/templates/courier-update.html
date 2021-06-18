@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Update user</title>
+</head>
+<body>
+<form action="#" th:action="@{/courier-update}" th:object="${courier}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="FullName">FullName</label>
+    <input type="text" th:field="*{fullName}" id="FullName" placeholder="FullName">
+    <br/>
+    <select name="status" th:field="*{{courier_status}}" >
+        <option th:each="courier_status : ${T(megacom.kg.test.model.enums.Courier_status).values()}"
+                th:value="${courier_status}" th:selected="${courier_status == T(megacom.kg.test.model.enums.Courier_status)}" th:text="${courier_status.getStatus()}"></option>
+    </select>
+    <br/>
+    <label for="phone">Phone</label>
+    <input type="text" th:field="*{phone}" id="phone" placeholder="phone#">
+    <br/>
+    <input type="submit" value="Update Courier">
+</form>
+</body>
+</html>
