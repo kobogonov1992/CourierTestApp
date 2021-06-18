@@ -12,14 +12,14 @@
     <input type="text" th:field="*{order_name}" id="order_name" placeholder="Order name">
     <br/>
         <label for="ransom_sum">Order price</label>
-        <input type="text" th:field="*{ransom_sum}" id="ransom_sum" placeholder="Order price">
+        <input type="number" th:field="*{ransom_sum}" id="ransom_sum" placeholder="Order price">
 
     <br/>
     <label for="order_date">Order date</label>
     <input type="datetime-local" th:field="*{order_date}" id="order_date" placeholder="Order date">
     <br/>
     <label for="delivery_price">Delivery price</label>
-    <input type="text" th:field="*{delivery_price}" id="delivery_price" placeholder="Delivery price">
+    <input type="number" th:field="*{delivery_price}" id="delivery_price" placeholder="Delivery price">
     <br/>
 
     <label for="comment">Comment</label>
