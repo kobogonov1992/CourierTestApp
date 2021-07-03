@@ -3,8 +3,6 @@ package megacom.kg.test.model;
 import lombok.*;
 import megacom.kg.test.model.enums.Courier_status;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Getter

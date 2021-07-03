@@ -8,9 +8,6 @@
 <form action="#" th:action="@{/courier-create}" th:object="${courier}" method="post">
     <label for="fullName">Full name</label>
     <input type="text" th:field="*{fullName}" id="fullName" placeholder="FullName">
-<!--    <label for="courier_status">Status</label>-->
-<!--    <input type="text" th:field="*{courier_status}" id="courier_status" placeholder="Status">-->
-<!--    <label for="phone">Phone</label>-->
     <select name="status" th:field="*{{courier_status}}" >
         <option th:each="courier_status : ${T(megacom.kg.test.model.enums.Courier_status).values()}"
                 th:value="${courier_status}" th:selected="${courier_status == T(megacom.kg.test.model.enums.Courier_status)}" th:text="${courier_status.getStatus()}"></option>

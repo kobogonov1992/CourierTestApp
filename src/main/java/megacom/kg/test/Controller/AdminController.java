@@ -1,7 +1,6 @@
 package megacom.kg.test.Controller;
 
 import megacom.kg.test.model.Admin;
-import megacom.kg.test.model.Courier;
 import megacom.kg.test.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

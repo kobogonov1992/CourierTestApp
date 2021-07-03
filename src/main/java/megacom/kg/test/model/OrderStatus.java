@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import megacom.kg.test.model.baseEntity.BaseEntity;
-
 import javax.persistence.Entity;
 
 @Getter
